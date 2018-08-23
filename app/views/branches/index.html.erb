@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h3>Branches available in <%= @college.name %></h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>College</th>
+      <th>Branch name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @branches.each do |branch| %>
+      <tr>
+        <td><%= branch.college.name%></td>
+        <td><%= branch.branch_name %></td>
+        <td><%= link_to 'Show', [@college,branch] %></td>
+        <td><%= link_to 'Edit', edit_college_branch_path(@college,branch) %></td>
+        <td><%= link_to 'Destroy',[@college, branch], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Students', college_branch_students_path(@college,branch) %> 
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Branch', new_college_branch_path(@college),:class => "btn btn-primary"%>
+<br>
+<%= will_paginate @branches %>

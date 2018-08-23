@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<h4> List of Branches </h4>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>College</th>
+      <th>Branch name</th>
+      
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @branches.each do |branch| %>
+      <tr>
+        <td><%= branch.college.name%></td>
+        <td><%= branch.branch_name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @branches %>
+<br>
+
+

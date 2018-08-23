@@ -1,0 +1,24 @@
+
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>Branch:</strong>
+  <%= @student.branch_id %>
+</p>
+
+<p>
+  <strong>Student name:</strong>
+  <%= @student.student_name %>
+</p>
+
+<p>
+  <strong>Student address:</strong>
+  <%= @student.student_address %>
+</p>
+
+<p>
+  <strong>Student sem:</strong>
+  <%= @student.student_sem %>
+</p>
+
+<%= link_to 'Edit', edit_college_branch_student_path(@college,@branch,@student) %> |
+<%= link_to 'Back', college_branch_students_path(@college,@branch) %>
