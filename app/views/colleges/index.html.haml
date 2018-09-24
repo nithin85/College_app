@@ -1,0 +1,42 @@
+%p#notice
+  =notice
+=render "/colleges/search"
+%h1 Colleges
+%table.table.table-bordered
+  %thead
+    %tr
+      %th name
+      %th Address
+      %th Contact
+      %th{:colspan=>"5"}
+  %tbody
+    - @colleges.each do |college|
+      %tr{:id =>"college_#{college.id}"}
+        %td= college.name
+        %td= college.address
+        %td= college.contact
+        %td= link_to 'Show', college,  :remote => true
+        %td= link_to 'Edit', edit_college_path(college), :remote => true
+        %td= link_to 'Destroy', college, method: :delete, data: { confirm: 'Are you sure?' } ,:remote => :true
+        %td= link_to 'Branches', college_branches_path(college) 
+        %td= link_to 'Students', students_college_path(college) 
+%br
+=link_to 'New College', new_college_path, :class =>"btn btn-primary",  :remote => true
+%br
+= will_paginate @colleges 
+= link_to 'disp','#',:onclick => "on_click()"
+#product-modal.modal.fade
+
+.dis
+  hiii
+
+
+
+
+  
+
+  
+
+
+
+

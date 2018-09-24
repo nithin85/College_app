@@ -10,7 +10,24 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
 //= require rails-ujs
+//= require bootstrap
+//= require_tree
 //= require activestorage
-//= require turbolinks
-//= require_tree .
+//= require bootstrap-modal.js
+//= require bootstrap-modalmanager.js
+
+
+
+
+function render_add()
+	{
+    $('#college_address').val($('#college_name').val());
+	}
+function on_click()
+  {
+ 
+    $(".dis").toggle();
+  }
+

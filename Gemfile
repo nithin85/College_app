@@ -17,6 +17,14 @@ gem 'bootstrap-sass', '3.3.7'
 gem 'will_paginate',           '3.1.6'
 gem 'bootstrap-will_paginate', '1.0.0'
 
+gem 'jquery-rails'
+
+gem 'haml-rails'
+
+gem 'mysql2'
+gem 'devise'
+
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes

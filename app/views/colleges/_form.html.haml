@@ -1,0 +1,33 @@
+.modal-dialog
+  .modal-content
+    .modal-header
+      %button.close{"data-dismiss" => "modal", :type => "button"} ×
+      %h3  College details
+    .modal-body
+      -if college.errors.any? 
+        #error_explanation
+          
+          %ul
+            -college.errors.full_messages.each do |message| 
+              %li= message
+      = form_for(@college, :remote => :true ) do |form|
+        .form-group
+          = form.label :name, class:"control-label"
+          = form.text_field :name, class: "form-control", :onchange => "render_add();"
+        .form-group
+          = form.label :address, class:"control-label" 
+          = form.text_area :address, class: "form-control"
+        .form-group
+          = form.label :contact, class:"control-label" 
+          = form.text_field :contact, class: "form-control"
+        %br
+        .modal-footer
+          .actions
+            = form.submit class: "btn btn-primary" 
+            = link_to "Cancel", '#', class: "btn", data: {dismiss: "modal"}
+           
+           
+    
+
+
+

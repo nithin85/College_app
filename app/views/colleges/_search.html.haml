@@ -1,0 +1,11 @@
+= form_tag colleges_path, :method => :get do 
+  = label_tag "name"
+  = text_field_tag "name" 
+  = label_tag "Address" 
+  = text_field_tag "add"
+  = button_tag(type: "Submit", class: "btn btn-primary") do
+    Search 
+    %i.glyphicon.glyphicon-search
+ 
+ 	
+ 

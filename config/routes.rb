@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
- 	root 'colleges#index'
-		
-  
+  devise_for :users
   resources :colleges do
-		resources :branches do
-		  resources :students 
+	resources :branches do
+		resources :students 
 		end
   end
 
@@ -20,12 +18,13 @@ Rails.application.routes.draw do
 		end
 	end
 
- resources :colleges do
- 	member do
-		get :students
-	end
+  resources :colleges do
+ 	  member do
+		  get :students
+	  end
+  end
+ 
+  devise_scope :user do
+   root to: "devise/sessions#new"
  end
-
-   
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

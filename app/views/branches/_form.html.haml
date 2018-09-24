@@ -1,0 +1,21 @@
+.modal-dialog
+  .modal-content
+    .modal-header
+      %button.close{"data-dismiss" => "modal", :type => "button"} ×
+      %h3  Branch 
+    .modal-body
+      -if branch.errors.any?
+        #error_explanation
+          %ul
+            -branch.errors.full_messages.each do |message|
+              %li= message 
+      = form_for([@college,@branch], :remote => :true) do |form|
+        .field
+          = form.label :branch_name
+          = form.text_field :branch_name
+        %br
+        .modal-footer
+          .actions
+            = form.submit class: "btn btn-primary" 
+            = link_to "Cancel", '#' , class: "btn", data: {dismiss: "modal"}
+

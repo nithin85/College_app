@@ -1,0 +1,28 @@
+%p#notice
+  = notice
+%p
+  %h3 
+    Branches available in 
+    = @college.name
+%table.table.table-bordered
+  %thead
+    %tr
+      %th College
+      %th Branch name
+      %th{:colspan =>"4"}
+   
+  %tbody
+    -@branches.each do |branch| 
+      %tr{:id =>"branch_#{branch.id}"}
+        %td= branch.college.name
+        %td= branch.branch_name
+        %td= link_to 'Show', [@college,branch], :remote => true 
+        %td= link_to 'Edit', edit_college_branch_path(@college,branch), :remote => true 
+        %td= link_to 'Destroy',[@college, branch], method: :delete, data: { confirm: 'Are you sure?' } ,:remote => :true
+        %td= link_to 'Students', college_branch_students_path(@college,branch) 
+%br
+= link_to 'Back', colleges_path(@college)
+= link_to 'New Branch', new_college_branch_path(@college),:class => "btn btn-success", :remote => true
+%br
+= will_paginate @branches
+#product-modal.modal.fade

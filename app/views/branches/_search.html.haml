@@ -1,0 +1,7 @@
+= form_tag list_branches_branches_path, :method=> :get do 
+  = label_tag "Search"
+  = text_field_tag "branch"
+  = button_tag(type: "Submit", class: "btn btn-primary") do
+    Search
+    %i.glyphicon.glyphicon-search
+

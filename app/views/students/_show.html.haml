@@ -1,0 +1,23 @@
+.modal-dialog
+  .modal-content
+    .modal-header
+      %button.close{"data-dismiss" => "modal", :type => "button"} ×
+      %h3  Students 
+    .modal-body
+      %p
+        %strong Branch:
+        = @student.branch.branch_name
+      %p
+        %strong Student name:
+        = @student.student_name
+      %p
+        %strong Student address:
+        = @student.student_address
+      %p
+        %strong Student sem:
+        = @student.student_sem 
+    .modal-footer  
+      = link_to 'Edit', edit_college_branch_student_path(@college,@branch,@student), class:"btn btn-primary", :remote => true
+      = link_to "Cancel", '#', class: "btn", data: {dismiss: "modal"}
+     
+    

@@ -1,0 +1,22 @@
+%p#notice
+  = notice 
+= render "/branches/search"
+-if params[:branch].blank?
+  %h4 List of Branches
+-else
+  %h4 List of Colleges having  
+  = params[:branch] 
+%table.table.table-bordered
+  %thead
+    %tr
+      %th Branch name
+      %th College
+  %tbody
+    -@branches.each do |branch|
+      %tr   
+        %td= branch.branch_name
+        %td= branch.college.name rescue 'no college found'
+= will_paginate @branches
+%br
+
+

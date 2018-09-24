@@ -1,0 +1,23 @@
+%p#notice 
+  = notice
+%h3 List of Students
+%table.table.table-bordered
+  %thead
+    %tr
+      %th Student name
+      %th Branch
+      %th College
+      %th Student sem
+      %th{:colspan => "3"}
+  %tbody
+    -@students.each do |student| 
+      %tr
+        %td= student.student_name 
+        %td= student.branch.branch_name 
+        %td= student.branch.college.name rescue 'no college found'
+        %td= student.student_sem
+%br
+= will_paginate @students 
+%br
+
+

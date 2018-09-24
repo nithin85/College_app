@@ -1,0 +1,34 @@
+%h3
+  List of students under 
+  = @college.name 
+  and Branch
+  =@branch.branch_name 
+%p#notice
+  = notice 
+%h1 Students
+%table.table.table-bordered
+  %thead
+    %tr
+      %th Student Name 
+      %th Branch
+      %th Student Address 
+      %th Student Sem
+      %th{:colspan=>"3"}
+  %tbody
+   
+    -@students.each do |student|
+      %tr{:id =>"student_#{student.id}"}
+        %td= student.student_name
+        %td= student.branch.branch_name
+        %td= student.student_address
+        %td= student.student_sem
+        %td= link_to 'Show', [@college,@branch,student], :remote => true
+        %td= link_to 'Edit', edit_college_branch_student_path(@college,@branch,student), :remote => true
+        %td= link_to 'Destroy', [@college,@branch,student], method: :delete, data: { confirm: 'Are you sure?' } ,:remote => :true
+%br
+= link_to 'Back', college_branches_path(@college,@branch)
+= link_to 'New Student', new_college_branch_student_path(@college,@branch), :class => "btn btn-primary", :remote => true
+
+%br
+= will_paginate @students 
+#product-modal.modal.fade
